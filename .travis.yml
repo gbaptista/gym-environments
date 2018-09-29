@@ -1,0 +1,30 @@
+language: python
+python:
+  - "3.6"
+
+cache:
+  apt: true
+  pip: true
+  ccache: true
+
+env:
+  global:
+    - CC_TEST_REPORTER_ID=X
+
+before_install:
+  - set -e  # fail on any error
+  - source $TRAVIS_BUILD_DIR/.travis/util.sh
+
+install:
+  - source $TRAVIS_BUILD_DIR/.travis/stage_install.sh
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
+script:
+  - source $TRAVIS_BUILD_DIR/.travis/stage_script.sh
+
+after_script:
+  - source $TRAVIS_BUILD_DIR/.travis/after_script.sh
