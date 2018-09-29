@@ -9,7 +9,7 @@ cache:
 
 env:
   global:
-    - CC_TEST_REPORTER_ID=X
+    - CC_TEST_REPORTER_ID=e7cafa3eefa40d76029761d177fa0cf487304653bc01e1a6e10673e0cd55ff2c
 
 before_install:
   - set -e  # fail on any error
