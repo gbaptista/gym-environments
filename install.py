@@ -2,7 +2,7 @@ import subprocess
 import gym
 
 
-def install(package_folder, enviroments):
+def install(package_folder, environments):
     pip_version_with_folder = subprocess.run(['pip', '--version'],
                                              stdout=subprocess.PIPE).stdout
 
@@ -41,8 +41,8 @@ def install(package_folder, enviroments):
     print('> ' + current_envs_file + ' updated.')
     print('> ' + gym_folder + '/' + package_folder)
 
-    for enviroment in enviroments:
-        print('>', gym.make(enviroment))
+    for environment in environments:
+        print('>', gym.make(environment))
 
     print('')
 
